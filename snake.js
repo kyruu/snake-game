@@ -5,8 +5,9 @@ function Snake() {
   this.ySpeed = 0;
   this.total = 0;
   this.tail = [];
+  this.space = false;
 
-  var highScore = 0;
+  this.highScore = 0;
 
   this.draw = function() {
     ctx.fillStyle = "#08a322";
@@ -66,6 +67,29 @@ function Snake() {
     }
   }
 
+  document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+      this.space = true;
+      snake.xSpeed = 0;
+      snake.ySpeed = 0;
+      $('body').append(`<div id="popup" class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+      <article class="message is-success">
+        <div class="message-header">
+          <p>Game Paused</p>
+          <button id="msg_delete" class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          Current Score: ${snake.total+1}
+        </div>
+      </article>
+      </div>
+    </div>`);
+    $('#msg_delete').on("click", handleMsgBtnPress);
+    }
+  };
+
   this.eat = function(fruit) {
     if(this.x === fruit.x && this.y === fruit.y) {
       eat.play();
@@ -86,16 +110,45 @@ function Snake() {
     dead.play();
     ctx.fillStyle = "#878c8b";
     ctx.fillRect(this.x, this.y, scale, scale);
-    if((this.total+1) > highScore) {
-      highScore = this.total+1;
-      alert("Congratulations!\nNew High Score: " + (highScore));
-        this.reset();
+    if((this.total+1) > this.highScore) {
+      this.highScore = this.total+1;
+      $('body').append(`<div id="popup" class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+      <article class="message is-success">
+        <div class="message-header">
+          <p>Congratulations!</p>
+          <button id="msg_delete" class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          New High Score: ${this.highScore}
+        </div>
+      </article>
+      </div>
+    </div>`);
   } else {
-      alert("Game Over\nScore: " + (this.total+1)); {
-        this.reset();
-    }
+    $('body').append(`<div id="popup" class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+    <article class="message is-success">
+      <div class="message-header">
+        <p>Game Over!</p>
+        <button id="msg_delete" class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Score: ${this.total+1}
+      </div>
+    </article>
+    </div>
+  </div>`);  
   }
+  this.reset();
+  $('#msg_delete').on("click", handleMsgBtnPress);
 }
+
+  let handleMsgBtnPress = function () {
+    $('#popup').remove();
+  }
 
   this.bumpTail = function() {
     for(let j=0; j<this.tail.length - 1; j++) {
@@ -109,16 +162,12 @@ function Snake() {
   }
 
   this.drawScore = function() {
-     ctx.font = "24px Verdana";
-     ctx.fillStyle = "#000000";
-     ctx.fillText("Length: "+(this.total+1), 8, 20);
+    $('#length').html(`Length: ${this.total+1}`);
    }
 
-   this.drawHighScore = function() {
-      ctx.font = "24px Verdana";
-      ctx.fillStyle = "#000000";
-      ctx.fillText("High Score: "+highScore, 150, 20);
-    }
+  this.drawHighScore = function() {
+    $('#score').html(`High Score: ${this.highScore}`);
+  }
 
 
    this.reset = function() {

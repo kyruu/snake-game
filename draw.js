@@ -12,24 +12,6 @@ const board = {
     dark: '#dce8d1'
   }
 }
-var btn = document.createElement("input");   // Create a <button> element
-btn.value = "INCREASE DIFFICULTY";
-btn.style.border = "none";
-btn.style.color = "black";
-btn.style.padding = "15px 32px";
-btn.style.textAlign = "center";
-btn.style.textDecoration = "none";
-btn.style.display = "inline-block";
-btn.style.fontSize = "24px";
-btn.style.margin = "4px 2px";
-btn.style.cursor = "pointer";
-btn.style.backgroundColor = "#bef7cd";          // Insert text
-btn.setAttribute("onClick", "incDif()");
-document.body.appendChild(btn);
-
-function incDif() {
-  alert("Increasing Difficulty. . .");
-}
 
 function sound(src) {
   this.sound = document.createElement("audio");
@@ -87,8 +69,8 @@ function drawBoard() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBoard();
     fruit.draw();
-    bomb1.draw();
-    bomb2.draw();
+    // bomb1.draw();
+    // bomb2.draw();
     snake.update();
     snake.draw();
     snake.drawScore();
@@ -103,17 +85,37 @@ function drawBoard() {
     if(snake.bumpTail()) {
       snake.die()
     }
-    if(snake.trip(bomb1) || snake.trip(bomb2)) {
-      snake.die();
-    }
+    // if(snake.trip(bomb1) || snake.trip(bomb2)) {
+    //   snake.die();
+    // }
   }, 115);
 }());
 
-  document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
-        alert("Game Paused");
-    }
-  }
+  // document.body.onkeyup = function(e){
+  //   if(e.keyCode == 32){
+  //     snake.xSpeed = 0;
+  //     snake.ySpeed = 0;
+  //     $('body').append(`<div id="popup" class="modal is-active">
+  //     <div class="modal-background"></div>
+  //     <div class="modal-content">
+  //     <article class="message is-success">
+  //       <div class="message-header">
+  //         <p>Game Paused</p>
+  //         <button id="msg_delete" class="delete" aria-label="delete"></button>
+  //       </div>
+  //       <div class="message-body">
+  //         Current Score: ${snake.total+1}
+  //       </div>
+  //     </article>
+  //     </div>
+  //   </div>`);
+  //   $('#msg_delete').on("click", handleMsgBtnPress);
+  //   }
+  // };
+
+  // let handleMsgBtnPress = function () {
+  //   $('#popup').remove();
+  // };
 
   window.addEventListener('keydown', ((evt) => {
     const direction = evt.key.replace('Arrow', '');

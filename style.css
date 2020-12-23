@@ -1,0 +1,11 @@
+h1, h2, ul {
+    text-align: center;
+}
+
+canvas {
+    border: 20px solid #02ba33;
+}
+
+#red {
+    color: red;
+}
