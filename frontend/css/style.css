@@ -1,0 +1,40 @@
+body {
+  overflow: hidden; /* Hide scrollbars */
+  background-color: #333634;
+}
+
+h2,
+ul {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+ol {
+  text-align: center;
+  list-style-position: inside;
+}
+
+canvas {
+  border: 20px solid #02ba33;
+}
+
+#red {
+  color: red;
+}
+
+footer {
+  background-color: #333634;
+}
+
+html {
+  background-color: #333634;
+}
+
+#load {
+  text-align: center;
+}

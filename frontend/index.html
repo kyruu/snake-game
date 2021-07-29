@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  <!-- <link rel="stylesheet" href="frontend/node_modules/bulma/css/bulma.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.css" />
+  <link rel="stylesheet" href="css/mystyles.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="/images/snake-32x32.png">
+  <!-- <link rel="stylesheet" href="sass/mystyles.scss" /> -->
+
+  
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    <title>Snake Game</title>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDxbwnNP3lLoMsU9Oq7Z8mBTAPvzYE90MA",
+        authDomain: "snake-game-7ec12.firebaseapp.com",
+        projectId: "snake-game-7ec12",
+        storageBucket: "snake-game-7ec12.appspot.com",
+        messagingSenderId: "1059804125670",
+        appId: "1:1059804125670:web:7a9df76bea396f2a659e27",
+        measurementId: "G-3YSPENR5H8"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+
+  <body id="body">
+
+    <section class="hero is-success is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Snake Game
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-start">
+        <div class="navbar-item">
+        <button id="author" class="button is-link">
+          Learn more about the author
+        </button>
+        </div>
+      </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <div id="userEmail" class="navbar-item"></div>
+              <a id="redirect" class="button is-success">
+                Sign up or Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="rules" class="modal is-active">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+      <article class="message is-success">
+        <div class="message-header">
+          <p>How To Play</p>
+          <button id="rules" class="delete" aria-label="delete"></button>
+        </div>
+        <div class="message-body">
+          <ul>
+          <li>Start the game by pressing any arrow key <span><i class="fas fa-arrows-alt"></i></span></li>
+          <li>Pause the game by pressing the spacebar <span><i class="fas fa-pause"></i></span></li>
+          <li>Collect the <span id="red">red</span> squares and avoid running into yourself!<span><i class="fas fa-crown"></i></li>
+        </ul>
+        </div>
+      </article>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered">
+      <div class="column is-half is-offset-one-fifth">
+        <div class="buttons are-medium">
+          <div class="container is-centered">
+          <button id="length" class="button is-outlined is-success is-normal is-static">Length: 1</button>
+          <button id="score" class="button is-outlined is-success is-normal is-static">High Score: 0</button>
+          <button id="leaders" class="button is-link is-normal is-outlined">View Leaderboard</button>
+          </div>
+        </div>
+        <canvas id="canvas" class="canvas" width="400" height="400"></canvas>
+      </div>
+    </div>
+
+    <!-- <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong style="color:white;">Snake Game</strong> by <a href="https://personal-website-d0c2d.web.app/">Kyle Maatallah</a>. Website stylized with 
+          <a href="https://bulma.io/">Bulma</a>.
+          Hosting, authentication, and storage provided by <a href="https://firebase.google.com/">Google Firebase</a>.
+        </p>
+      </div>
+    </footer> -->
+    
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="bomb.js"></script>
+  <script type="text/javascript" src="fruit.js"></script>
+  <script type="text/javascript" src="snake.js"></script>
+  <script type="text/javascript" src="draw.js"></script>
+
+</body>
+
+</html>

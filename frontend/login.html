@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <link rel="stylesheet" href="node_modules/bulma/css/bulma.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Snake Game</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"
+    />
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDxbwnNP3lLoMsU9Oq7Z8mBTAPvzYE90MA",
+        authDomain: "snake-game-7ec12.firebaseapp.com",
+        projectId: "snake-game-7ec12",
+        storageBucket: "snake-game-7ec12.appspot.com",
+        messagingSenderId: "1059804125670",
+        appId: "1:1059804125670:web:7a9df76bea396f2a659e27",
+        measurementId: "G-3YSPENR5H8",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+
+  <body>
+    <section class="hero is-success is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Snake Game</h1>
+          <h2 class="subtitle">Kyle Maatallah</h2>
+        </div>
+      </div>
+    </section>
+    <br />
+
+    <!-- <div class="content">
+      <h1 class="title">Welcome back.</h1>
+    </div> -->
+
+    <div class="columns is-mobile is-centered">
+      <div class="column is-one-third">
+        <div class="box">
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input
+                id="txtEmail"
+                class="input"
+                type="text"
+                placeholder="Username"
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </p>
+          </div>
+          <div id="passField" class="field">
+            <p class="control has-icons-left">
+              <input
+                id="txtPassword"
+                class="input"
+                type="password"
+                placeholder="Password"
+              />
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <button id="login" class="button is-success">Login</button>
+              <button id="signup" class="button is-success is-outlined">
+                Sign Up
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="user.js"></script>
+  </body>
+</html>
